@@ -5,9 +5,23 @@
 </template>
 
 <script>
-//import axios from 'axios';
+  import axios from 'axios';
 export default {
-  name: 'App'
+  name: 'App',
+
+  data() {
+    return {
+      pokemons: []
+    }
+  },
+
+  // assim que a pagina é carregada faz uma requisição a api que retorna os 151 pokemons
+  created: function() {
+    axios.get("https://pokeapi.co/api/v2/pokemon?limit=151offset=0").then(res => {
+      this.pokemons = res.data.results;
+    })
+  }
+
 }
 </script>
 
