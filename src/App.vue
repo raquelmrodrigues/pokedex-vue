@@ -2,11 +2,14 @@
   <div id="app">
     
     <div class="column is-half is-offset-one-quarter">
-      <div v-for="(poke, index) in pokemons" :key="index">
+      <input type="text" class="input is-rounded" placeholder="Buscar Pokemon" v-model="busca">
+      
+      <div v-for="(poke, index) in resultadoBusca" :key="index">
         <PokemonComponent :name="poke.name" :url="poke.url" :num="index + 1"/> 
       </div>
     </div>
 
+    
 
   </div>
 </template>
@@ -20,7 +23,8 @@ export default {
 
   data() {
     return {
-      pokemons: []
+      pokemons: [],
+      busca: ''
     }
   },
 
@@ -33,6 +37,16 @@ export default {
 
   components: {
       PokemonComponent
+  },
+
+  computed: {
+    resultadoBusca: function() {
+      if(this.busca == '' || this.busca == ' ') {
+        return this.pokemons;
+      } else {
+        return this.pokemons.filter(pokemon => pokemon.name == this.busca)
+      }
+    }
   }
 }
 </script>
@@ -46,4 +60,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 </style>
