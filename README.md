@@ -1,6 +1,6 @@
 # Pokedex
 
-Projeto elaborado em Vue.js que pega dados da PokeAPI (https://pokeapi.co/) contendo os 151 primeiros pokemons, além disso conta com sistemas de busca onde você pode buscar por determinado pokemon.
+Projeto elaborado em Vue.js que pega dados (número, nome, tipo, imagem) da PokeAPI (https://pokeapi.co/) contendo os 151 primeiros pokemons, além disso conta com sistemas de busca onde você pode buscar por determinado pokemon.
 
 ## Project setup
 ```
